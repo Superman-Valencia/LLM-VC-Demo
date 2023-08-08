@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Voice conversion with generalization based on the self-supervised model using multiple-loss constraints</title>
+		    <style>
+    			.image-container {
+      				display: flex;
+      				justify-content: center;
+    				}
+    			.image-container img {
+      			max-width: 45%; /* 可以根据需要调整图片的最大宽度 */
+      			margin-right: 10px; /* 设置图片之间的间隔 */
+    				}
+ 			 </style>
+		<style>
+  			audio{
+    			width: 192px; /* 设置播放器宽度为 300px */
+  				}
+		</style>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<span class="logo"><img src="images/logo.svg" alt="" /></span>
+						<h1 style="font-size: 50px;">Voice conversion with generalization based on the self-supervised model using multiple-loss constraints </h1>
+						<br style="font-size: 30px;">Yuhang Xue, Ning Chen<sup>*</sup> </br>
+						<p style="font-size: 30px;">East China University of Science and Technology, Shanghai, China</p>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul>
+							<li><a href="#intro" class="active">Abstract</a></li>
+							<li><a href="#first">Seen Conversion</a></li>
+							<li><a href="#second">Unseen Conversion</a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Introduction -->
+							<section id="intro" class="main">
+								<div class="spotlight">
+									<div class="content">
+										<header class="major">
+											<h2>Abstract</h2>
+										</header>
+										<p style="text-align: justify">Voice conversion is to convert a source voice into a target voice while keeping the content of the source speech.
+											Currently, most voice conversion models utilize multiple well-designed encoders combined with different loss functions to decouple content and speaker features to achieve voice conversion.
+											In this work, we propose a voice conversion model with generalization based on the self-supervised large model using multiple-loss constraints. Firstly, we use the features of different layers
+											of the large model to replace the original mel-spectrograms as the encoder's input to extract the content embedding and speaker embedding. Secondly, with the help of multiple-loss constraints
+											during training, the model can ensure the intelligibility of the extracted content information and improve its separability to speakers. Finally, the authenticity of converted speech is improved
+											via the novel training approach. The proposed model is generalizable and robust and achieves good results in both objective and subjective evaluations, outperforming state-of-the-art voice conversion models.</p>
+									</div>
+								</div>
+								<div class="image-container">
+									<img src="images/architecture.png" alt="Image1" width="500px" height="200px" style="margin-top: 50px"/></img>
+									<img src="images/training.png" alt="Image2" width="500px" height="300px" style="margin-left: 100px"/></img>
+								</div>
+							</section>
+
+						<!-- First Section -->
+							<section id="first" class="main special">
+								<header class="major">
+									<h2>Seen Conversion</h2>
+								</header>
+								<table class="table table-responsive align-content-center" style="margin-left: -105px; background-color: whitesmoke; border-radius: 20px">
+									<tr>
+										<td style="vertical-align: middle; font-weight: bold"><center>Type</center>
+										<td style="vertical-align: middle; font-weight: bold"><center>Source</center>
+										<td style="vertical-align: middle; font-weight: bold"><center>Target</center>
+										<td style="vertical-align: middle; font-weight: bold"><center>SRD-VC</center>
+										<td style="vertical-align: middle; font-weight: bold"><center>AGAIN-VC</center>
+										<td style="vertical-align: middle; font-weight: bold"><center>Style-VC</center>
+										<td style="vertical-align: middle; font-weight: bold"><center>Proposed</center>
+									</tr>
+									<tr>
+										<td style="vertical-align: middle;"><center>M-F</center>
+										<td><audio controls="controls" source src="demo/source/p281_008.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/target/p295_017.wav" type="audio/wav"></audio>
+										<td><audio controls="controls" source src="demo/seen/SRD-VC/p281_008_to_p295_017.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/seen/AGAIN-VC/p281_008_to_p295_017.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/seen/Style-VC/p281_008_to_p295_017.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/seen/Proposed/p281_008_to_p295_017.wav" type="audio/wav"></audio>
+                            		</tr>
+									<tr>
+										<td style="vertical-align: middle;"><center>F-M</center>
+										<td><audio controls="controls" source src="demo/source/p288_015.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/target/p270_011.wav" type="audio/wav"></audio>
+										<td><audio controls="controls" source src="demo/seen/SRD-VC/p288_015_to_p270_011.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/seen/AGAIN-VC/p288_015_to_p270_011.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/seen/Style-VC/p288_015_to_p270_011.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/seen/Proposed/p288_015_to_p270_011.wav" type="audio/wav"></audio>
+                            		</tr>
+									<tr>
+										<td style="vertical-align: middle;"><center>M-M</center>
+										<td><audio controls="controls" source src="demo/source/p252_004.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/target/p326_015.wav" type="audio/wav"></audio>
+										<td><audio controls="controls" source src="demo/seen/SRD-VC/p252_004_to_p326_015.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/seen/AGAIN-VC/p252_004_to_p326_015.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/seen/Style-VC/p252_004_to_p326_015.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/seen/Proposed/p252_004_to_p326_015.wav" type="audio/wav"></audio>
+                            		</tr>
+									<tr>
+										<td style="vertical-align: middle;"><center>F-F</center>
+										<td><audio controls="controls" source src="demo/source/p244_006.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/target/p283_008.wav" type="audio/wav"></audio>
+										<td><audio controls="controls" source src="demo/seen/SRD-VC/p244_006_to_p283_008.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/seen/AGAIN-VC/p244_006_to_p283_008.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/seen/Style-VC/p244_006_to_p283_008.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/seen/Proposed/p244_006_to_p283_008.wav" type="audio/wav"></audio>
+                            		</tr>
+								</table>
+							</section>
+
+						<!-- Second Section -->
+							<section id="second" class="main special">
+								<header class="major">
+									<h2>Unseen Conversion</h2>
+								</header>
+								<table class="table table-responsive align-content-center" style="margin-left: -105px; background-color: whitesmoke; border-radius: 20px">
+									<tr>
+										<td style="vertical-align: middle; font-weight: bold"><center>Type</center>
+										<td style="vertical-align: middle; font-weight: bold"><center>Source</center>
+										<td style="vertical-align: middle; font-weight: bold"><center>Target</center>
+										<td style="vertical-align: middle; font-weight: bold"><center>SRD-VC</center>
+										<td style="vertical-align: middle; font-weight: bold"><center>AGAIN-VC</center>
+										<td style="vertical-align: middle; font-weight: bold"><center>Style-VC</center>
+										<td style="vertical-align: middle; font-weight: bold"><center>Proposed</center>
+									</tr>
+									<tr>
+										<td style="vertical-align: middle;"><center>M-F</center>
+										<td><audio controls="controls" source src="demo/source/p251_017.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/target/p228_019.wav" type="audio/wav"></audio>
+										<td><audio controls="controls" source src="demo/unseen/SRD-VC/p251_017_to_p228_019.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/unseen/AGAIN-VC/p251_017_to_p228_019.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/unseen/Style-VC/p251_017_to_p228_019.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/unseen/Proposed/p251_017_to_p228_019.wav" type="audio/wav"></audio>
+                            		</tr>
+									<tr>
+										<td style="vertical-align: middle;"><center>F-M</center>
+										<td><audio controls="controls" source src="demo/source/p228_018.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/target/p227_008.wav" type="audio/wav"></audio>
+										<td><audio controls="controls" source src="demo/unseen/SRD-VC/p228_018_to_p227_008.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/unseen/AGAIN-VC/p228_018_to_p227_008.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/unseen/Style-VC/p228_018_to_p227_008.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/unseen/Proposed/p228_018_to_p227_008.wav" type="audio/wav"></audio>
+                            		</tr>
+									<tr>
+										<td style="vertical-align: middle;"><center>M-M</center>
+										<td><audio controls="controls" source src="demo/source/p232_006.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/target/p243_011.wav" type="audio/wav"></audio>
+										<td><audio controls="controls" source src="demo/unseen/SRD-VC/p232_006_to_p243_011.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/unseen/AGAIN-VC/p232_006_to_p243_011.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/unseen/Style-VC/p232_006_to_p243_011.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/unseen/Proposed/p232_006_to_p243_011.wav" type="audio/wav"></audio>
+                            		</tr>
+									<tr>
+										<td style="vertical-align: middle;"><center>F-F</center>
+										<td><audio controls="controls" source src="demo/source/p229_005.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/target/p228_015.wav" type="audio/wav"></audio>
+										<td><audio controls="controls" source src="demo/unseen/SRD-VC/p229_005_to_p228_015.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/unseen/AGAIN-VC/p229_005_to_p228_015.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/unseen/Style-VC/p229_005_to_p228_015.wav" type="audio/wav"></audio>
+                              			<td><audio controls="controls" source src="demo/unseen/Proposed/p229_005_to_p228_015.wav" type="audio/wav"></audio>
+                            		</tr>
+								</table>
+							</section>
+				<!-- Footer -->
+					<footer id="footer">
+						<p class="copyright">&copy;Design: Yuhang Xue</p>
+					</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
