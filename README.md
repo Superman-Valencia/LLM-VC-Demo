@@ -3,7 +3,7 @@
 
 The following is the overall model architecture.
 <div align="center">
-  <img src="images/proposed_model_revise.png" width="1672px" height="763px">
+  <img src="images/proposed_model_revise.png">
   <p>Fig.1: The overall architecture of the proposed model.</p>
 </div>
 
