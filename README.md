@@ -9,4 +9,4 @@ The following is the overall model architecture.
 </div>
 
 # DEMO
-For the converted samples, you can visit [the demo page]([https://www.example.com](https://superman-valencia.github.io/LLM-VC-Demo/).
+For the converted samples, you can visit [the demo page](https://superman-valencia.github.io/LLM-VC-Demo/).
