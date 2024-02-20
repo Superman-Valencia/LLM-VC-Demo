@@ -1,10 +1,10 @@
 # <p align="justify"> LLM-VC: Voice Conversion based on the Pre-trained Large Language Model and a Specific Disentanglement Strategy
 
-<p align="justify"> This paper proposes a VC model based on the pre-trained large language model with a specific disentanglement strategy. First, the pre-trained WavLM is employed to extract layer-specific embeddings as the input of the speaker and content encoder, respectively, to improve the model's generalization. The content and speaker encoder are simplified due to the change in features. Second, the formant-shifting-based augmentation loss is introduced in content encoding to reduce redundant information effectively. Third, the AM-Softmax loss is adopted to enlarge the inter-speaker distance and reduce the intra-speaker distance, improving the model‘s separability to speakers. Experimental results demonstrate that the proposed model achieves excellent performance in objective and subjective evaluations under both seen and unseen scenarios.</p>
+<p align="justify"> One-shot voice conversion (VC) is always challenging, especially in an unseen scenario. This paper proposes a VC model based on the pre-trained large language model and a specific disentanglement strategy. On the one hand, the embeddings extracted by specific layers of pre-trained WavLM are employed as input for the speaker and content encoder, respectively, to improve the model's generalization and simplify the architecture of the two encoders. On the other hand, a specific disentanglement strategy is proposed to eliminate redundant information in embeddings obtained by WavLM. i) The formant-shifting-based augmentation loss is adopted to reduce content-irrelevant information effectively in content encoding; ii) The AM-Softmax loss is introduced to adjust the distance between different speakers; iii) L1 loss is calculated in pitch and mel-spectrogram reconstruction to improve the converted speech's quality further. Experimental results demonstrate that the proposed model achieves excellent performance in objective and subjective evaluations under both seen and unseen scenarios.</p>
 
 The following is the overall model architecture.
 <div align="center">
-  <img src="images/proposed_model_revise.png" width="80%">
+  <img src="images/LLM-VC-131.png" width="80%">
   <p>Fig.1: The overall architecture of the proposed model.</p>
 </div>
 
