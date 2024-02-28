@@ -56,14 +56,14 @@
 										<header class="major">
 											<h2>Abstract</h2>
 										</header>
-										<p style="text-align: justify; font-weight: normal">One-shot voice conversion (VC) is always challenging, especially in an unseen scenario. 
+										<p style="text-align: justify; font-weight: normal">One-shot voice conversion (VC) is challenging, especially in unseen scenarios. 
 											This paper proposes a VC model based on the pre-trained large language model and a specific disentanglement strategy. 
-											On the one hand, the embeddings extracted by specific layers of pre-trained WavLM are employed as input for the speaker and content encoders, respectively, 
-											to improve the model's generalization and simplify the architectures of the two encoders. On the other hand, a specific disentanglement strategy is proposed 
-											to eliminate redundant information in embeddings obtained by WavLM. i) The formant-shifting-based augmentation loss is adopted to reduce content-irrelevant 
-											information effectively in content encoding; ii) The AM-Softmax loss is introduced to adjust the distance between different speakers; iii) L1 loss is calculated 
-											in pitch and mel-spectrogram reconstruction to improve the converted speech's quality further. Experimental results demonstrate that the proposed model achieves 
-											excellent performance in objective and subjective evaluations under both seen and unseen scenarios.</p>
+											First, the embeddings extracted by specific layers of pre-trained WavLM are employed as input for the speaker and content encoders to improve the model's generalization and simplify their architectures. 
+											Second, a specific disentanglement strategy is proposed to remove redundant information in pre-trained embeddings. 
+											i) The formant-shifting-based augmentation loss is adopted to reduce content-irrelevant information in content encoding; 
+											ii) The AM-Softmax loss is introduced to adjust the distance between different speakers; 
+											iii) L1 loss is adopted in pitch and mel-spectrogram reconstruction to ensure the converted speech's quality. 
+											Experimental results demonstrate that the proposed model achieves excellent performance in objective and subjective evaluations under both seen and unseen scenarios.</p>
 									</div>
 								</div>
 								<div class="image-container">
